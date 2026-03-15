@@ -47,6 +47,21 @@ app.get("/", (req, res) => {
   res.send("PixelWalls Backend is running 🚀");
 });
 
+app.get("/test-db", async (req, res) => {
+  try {
+    const mongoose = require("mongoose");
+    const state = mongoose.connection.readyState;
+
+    if (state === 1) {
+      res.send("MongoDB Connected ✅");
+    } else {
+      res.send("MongoDB NOT connected ❌");
+    }
+  } catch (err) {
+    res.send("MongoDB error");
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
