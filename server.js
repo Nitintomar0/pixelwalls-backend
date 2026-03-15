@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
   res.send("PixelWalls Backend is running 🚀");
 });
 
-app.get("/test-db", async (req, res) => {
+app.get("/test-db", (req, res) => {
   const mongoose = require("mongoose");
 
   if (mongoose.connection.readyState === 1) {
