@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const app = express();
-
 /**
  * CORS CONFIG
  */
