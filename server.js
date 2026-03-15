@@ -48,17 +48,12 @@ app.get("/", (req, res) => {
 });
 
 app.get("/test-db", async (req, res) => {
-  try {
-    const mongoose = require("mongoose");
-    const state = mongoose.connection.readyState;
+  const mongoose = require("mongoose");
 
-    if (state === 1) {
-      res.send("MongoDB Connected ✅");
-    } else {
-      res.send("MongoDB NOT connected ❌");
-    }
-  } catch (err) {
-    res.send("MongoDB error");
+  if (mongoose.connection.readyState === 1) {
+    res.send("MongoDB Connected ✅");
+  } else {
+    res.send("MongoDB NOT connected ❌");
   }
 });
 
